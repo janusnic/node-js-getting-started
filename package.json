@@ -1,13 +1,18 @@
 {
-  "name": "node-js-getting-started",
+  "name": "node-js-todo",
   "version": "0.1.2",
-  "description": "A sample Node.js app using Express 4",
+  "description": "A Todo Node.js app using Express 4",
+  "author"       : "JanusNic",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
   },
   "dependencies": {
-    "express": "~4.9.x"
+    "express": "~4.9.x",
+    "mongoose"        : "~3.8.13",
+    "morgan"          : "~1.1.1",
+    "body-parser"     : "~1.4.3",
+    "method-override" : "~2.1.1"
   },
   "engines": {
     "node": "0.10.x"
