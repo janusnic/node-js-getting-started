@@ -24,7 +24,7 @@ $ heroku create
 $ git push heroku master
 $ heroku open
 ```
-
+## Demo: [todo-janus.herokuapp.com/](http://todo-janus.herokuapp.com/)
 ## Documentation
 
 For more information about using Node.js on Heroku, see these Dev Center articles:
