@@ -1,0 +1,161 @@
+@import "susy";
+
+$susy: (
+  columns: 12,
+  gutters: 1,
+  global-box-sizing: border-box,
+  clearfix: true,
+  gutter-position: after,
+);
+
+// Breakpoints
+$mobile: 20rem; // 320px
+$mobile-landscape: 30rem; // 480px
+$tablet-wide: 48rem; // 768px
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+%clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+body {
+  background: #eee;
+  color: #666;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-backface-visibility: hidden;
+  text-align: center;
+  font-weight: 300;
+}
+
+h1, h2 {
+  font-weight: 200;
+  color: #999
+}
+
+h1 {
+  font-size: 38px;
+  margin-bottom: gutter() / 2;
+}
+
+p {
+  color: #666;
+}
+
+hr {
+  background: none;
+  margin: gutter() 0;
+  border: none;
+  border-bottom: 1px solid #ddd;
+}
+
+a {
+  text-decoration: none;
+  color: #FF0080;
+}
+
+.container {
+  @include container(1100px);
+  margin: 0 auto;
+}
+
+.content {
+  @extend %clearfix;
+  padding: gutter();
+
+  img {
+    width: 100%;
+  }
+}
+
+.gallery {
+@extend %clearfix;
+  margin:0 auto;
+  text-align:center;
+  width:100%;
+
+  li {
+    @include gallery(3);
+    text-align:center;
+    position:relative;
+    margin-bottom: gutter();
+    display:inline-block;
+
+        @media (max-width: $tablet-wide) {
+        @include gallery(4);
+        }
+
+        @media (max-width: $mobile-landscape) {
+        @include gallery(6);
+        }
+
+        @media (max-width: $mobile) {
+        @include gallery(12 first);
+        }
+
+    h2 {
+    color: #999;
+    font-size: 13.5px;
+    letter-spacing: 1px;
+    margin-top: gutter() / 2;
+    text-transform: uppercase;
+    }
+
+    .imgwrap {
+    background-color: #fff;
+    padding: 8px;
+    position: relative;
+    border-radius: 2px;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, .1);
+
+    }
+
+    .imgmask {
+    background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Plus_font_awesome.svg/2000px-Plus_font_awesome.svg.png') 50% / 25px no-repeat;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    z-index: 1;
+    vertical-align: bottom;
+    text-align: center;
+    transition: all .25s ease-out;
+
+    }
+
+      img {
+        width:100%;
+        vertical-align: top;
+        transition: all .25s ease-out;
+
+            @media (max-width: $mobile) {
+                width: 100%;
+            }
+
+        }
+
+        &:hover img {
+            opacity: 0;
+            transition: all .25s ease-out;
+            }
+
+        &:hover .imgmask {
+        background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Plus_font_awesome.svg/2000px-Plus_font_awesome.svg.png') 50% / 85px no-repeat;
+        opacity: 1;
+        transition: all .25s ease-out;
+        }
+    }
+}
+
+footer {
+  font-size: 14.5px;
+  text-transform: uppercase;
+}

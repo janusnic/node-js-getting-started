@@ -1,0 +1,15 @@
+extends admin
+
+block content
+  h1 #{title}: #{image.title}
+
+  p #[strong Description:] #{image.description}
+  p #[strong Author:] #{image.author}
+  p #[strong Image:] #{image.url}
+  - var imgSrc = image.url
+  img(src='/media/gallery/'+imgSrc)
+  hr
+  p
+    a(href=image.link+'/delete') Delete Image
+  p
+    a(href=image.link+'/update') Update Image

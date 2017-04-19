@@ -1,0 +1,24 @@
+extends app
+
+block content
+    section#courses.section-padding
+      .container
+        .row
+          .header-section.text-center
+            h2= title
+            p
+              | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem nesciunt vitae,
+              br
+              |  maiores, magni dolorum aliquam.
+            hr.bottom-line
+      .container
+        .row
+          each val in list_images
+              .col-md-4.col-sm-6.padleft-right
+                figure.imghvr-fold-up
+                  img.img(src='/media/gallery/'+val.url, alt='')
+                  figcaption
+                    h3 #{val.title}
+                    p
+                      | #{val.description}
+                  a(href='#')

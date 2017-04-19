@@ -1,0 +1,29 @@
+section#contact.section-padding
+  .container
+    .row
+      .header-section.text-center
+        h2 Contact Us
+        p
+          | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem nesciunt vitae,
+          br
+          |  maiores, magni dolorum aliquam.
+        hr.bottom-line
+      #sendmessage Your message has been sent. Thank you!
+      #errormessage
+      form.contactForm(action='', method='post', role='form')
+        .col-md-6.col-sm-6.col-xs-12.left
+          .form-group
+            input#name.form-control.form(type='text', name='name', placeholder='Your Name', data-rule='minlen:4', data-msg='Please enter at least 4 chars')
+            .validation
+          .form-group
+            input#email.form-control(type='email', name='email', placeholder='Your Email', data-rule='email', data-msg='Please enter a valid email')
+            .validation
+          .form-group
+            input#subject.form-control(type='text', name='subject', placeholder='Subject', data-rule='minlen:4', data-msg='Please enter at least 8 chars of subject')
+            .validation
+        .col-md-6.col-sm-6.col-xs-12.right
+          .form-group
+            textarea.form-control(name='message', rows='5', data-rule='required', data-msg='Please write something for us', placeholder='Message')
+            .validation
+        .col-xs-12
+          button#submit.form.contact-form-button.light-form-button.oswald.light(type='submit', name='submit') SEND EMAIL
