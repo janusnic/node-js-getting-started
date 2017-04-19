@@ -1,0 +1,18 @@
+section#comment.section-padding
+  .container
+    .row
+      .header-section.text-center
+        h2 Start the discussion…
+      form.contactForm(action='/comment', method='post', role='form')
+        .col-md-8.col-sm-8.col-xs-12.left
+          .form-group
+            textarea.form-control(name='message', rows='4', data-rule='required', data-msg='Please write something for us', placeholder='Message')
+            .validation
+            input(name='post_id', type='hidden' value = post._id)
+
+        .col-md-4.col-sm-4.col-xs-12.right
+          .form-group
+            label#name.form-control.form Hello #{user.username} !
+          .form-group
+            button.btn.btn-block.btn-submit(name='submit', type='submit')
+              | Submit Post as #{user.username}

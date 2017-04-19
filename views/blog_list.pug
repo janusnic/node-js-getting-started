@@ -1,0 +1,16 @@
+extends app
+
+block content
+  section#feature.section-padding
+    .container
+      .row
+        .header-section.text-center
+          h2= title
+
+        ul.nav
+          each post in post_list
+            li
+              h4: a(href=post.link) #{post.title}
+          else
+            li There are no posts.
+        hr.bottom-line

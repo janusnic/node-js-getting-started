@@ -1,0 +1,23 @@
+.container
+
+  .row
+
+    h3(style='text-align: center') Add new Comment to:
+
+    div(style='width: 40%; margin: 0 auto')
+
+      .well
+
+        form(action='/blog/<%= topic._id %>/comments', method='POST')
+
+          .form-group
+
+            input.form-control(type='text', name='comment[text]', placeholder='Comment', required='')
+
+          .form-group
+
+            button.btn.btn-lg.btn-primary.btn-block Create Comment
+
+      |
+
+      a(href='/blog/') Back to Topic

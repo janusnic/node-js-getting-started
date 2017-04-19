@@ -1,0 +1,19 @@
+extends admin
+
+block content
+
+  h1 #{title}: #{image.title}
+
+  p #[strong Description:] #{image.description}
+
+  p #[strong Image:]
+    a(href=image.link) #{image.url}
+
+  hr
+
+  p Do you really want to delete this image?
+
+  form(method='POST' action='')
+    div.form-group
+      input#id.form-control(type='hidden',name='id', required='true', value=image._id )
+      button.btn.btn-primary(type='submit') Delete

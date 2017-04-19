@@ -1,0 +1,43 @@
+extends app
+
+block content
+  section#feature.section-padding
+    .container
+      .row
+        .header-section.text-center
+          h1 #{post.title}
+        div #{post.content}
+
+        ul.nav.navbar-nav
+          each val in post.category
+            li.btn-trial: a(href=val.link) #{val.name}
+
+        br
+        if comments
+          each comment in comments
+            .col-sm-8
+                .panel.panel-white.post.panel-shadow
+                    .post-heading
+                      .pull-left.image
+                        img.img-circle.avatar(src='/images/user_1.jpg', alt='user profile image')
+                      .pull-left.meta
+                        .title.h5
+                          a(href='#')
+                            b #{comment.author.username}
+                          |  made a post.
+                        h6.text-muted.time #{comment.create_at}
+
+                    .post-description
+                      p
+                        | #{comment.content}
+                      .stats
+                        a.btn.btn-default.stat-item(href='#')
+                          i.fa.fa-thumbs-up.icon
+                          |  2
+                        a.btn.btn-default.stat-item(href='#')
+                          i.fa.fa-thumbs-down.icon
+                          |  12
+
+        if user
+          block comment
+            include includes/comment

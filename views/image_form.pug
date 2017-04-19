@@ -1,0 +1,29 @@
+extends admin
+
+block content
+  h1= title
+
+  form(method='POST', enctype='multipart/form-data')
+    div.form-group
+      label(for='title') Title:
+      input#title.form-control(type='text', placeholder='Title of image' name='title' required='true' value=(undefined===image ? '' : image.title) )
+
+    div.form-group
+      label(for='author') Author:
+      input#author.form-control(type='text', placeholder='Author of image' name='author' required='true' value=(undefined===image ? '' : image.author) )
+
+    div.form-group
+      label(for='urlfile') File:
+      input#urlfile.form-control(type='file', placeholder='Url of image' name='urlfile' required='true' value=(undefined===image ? '' : image.url) )
+
+    div.form-group
+      label(for='content') Description:
+      textarea#content.form-control(type='textarea', rows="5" placeholder='Description' name='description' value=(undefined===image ? '' : image.description) required='true')
+
+
+    button.btn.btn-primary(type='submit') Submit
+
+  if errors
+    ul
+      for error in errors
+        li!= error.msg

@@ -1,0 +1,22 @@
+extends admin
+
+block content
+
+  h1 #{title}: #{post.title}
+
+  p #[strong Content:] #{post.content}
+
+  p #[strong Category:]
+    each val in post.category
+      a(href=val.url) #{val.name}
+      |,
+
+  hr
+
+    p Do you really want to delete this post?
+
+    form(method='POST' action='')
+      div.form-group
+        input#id.form-control(type='hidden',name='id', required='true', value=post._id )
+
+      button.btn.btn-primary(type='submit') Delete

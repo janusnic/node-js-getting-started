@@ -1,0 +1,59 @@
+body
+  nav.navbar.navbar-default.navbar-fixed-top
+    .container
+      .navbar-header
+        button.navbar-toggle(type='button', data-toggle='collapse', data-target='#myNavbar')
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        |
+        a.navbar-brand(href='/')
+          | Janus
+          span Nic
+      #myNavbar.collapse.navbar-collapse
+        ul.nav.navbar-nav.navbar-right
+          li
+            a(href='#feature') Features
+          li
+            a(href='#organisations') Organisations
+          li
+            a(href='#courses') Courses
+          li
+            a(href='#pricing') Pricing
+          if (!user)
+            li
+              a(href='/login') Sign in
+            li
+              a(href='/register') Sign up
+          else
+            li
+              a(href='/logout') Logout
+          li.btn-trial
+            a(href='/blog') Blog
+  #login.modal.fade(role='dialog')
+    .modal-dialog.modal-sm
+      .modal-content
+        .modal-header
+          button.close(type='button', data-dismiss='modal') &times;
+          h4.modal-title.text-center.form-title Login
+        .modal-body.padtrbl
+          .login-box-body
+            p.login-box-msg Sign in to start your session
+            .form-group
+              form#loginForm(name='')
+                .form-group.has-feedback
+                  input#loginid.form-control(placeholder='Username', type='text', autocomplete='off')
+                  span#span_loginid(style='display:none;font-weight:bold; position:absolute;color: red;position: absolute;padding:4px;font-size: 11px;background-color:rgba(128, 128, 128, 0.26);z-index: 17;  right: 27px; top: 5px;')
+                  span.glyphicon.glyphicon-user.form-control-feedback
+                .form-group.has-feedback
+                  input#loginpsw.form-control(placeholder='Password', type='password', autocomplete='off')
+                  span#span_loginpsw(style='display:none;font-weight:bold; position:absolute;color: grey;position: absolute;padding:4px;font-size: 11px;background-color:rgba(128, 128, 128, 0.26);z-index: 17;  right: 27px; top: 5px;')
+                  span.glyphicon.glyphicon-lock.form-control-feedback
+                .row
+                  .col-xs-12
+                    .checkbox.icheck
+                      label
+                        input#loginrem(type='checkbox')
+                        |  Remember Me
+                  .col-xs-12
+                    button.btn.btn-green.btn-block.btn-flat(type='button', onclick='userlogin()') Sign In

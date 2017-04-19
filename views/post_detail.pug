@@ -1,0 +1,17 @@
+extends admin
+
+block content
+  h1 #{title}: #{post.title}
+
+  p #[strong Content:] #{post.content}
+
+  p #[strong Category:]
+    each val in post.category
+      a(href=val.url) #{val.name}
+      |,
+
+  hr
+  p
+    a(href=post.url+'/delete') Delete Post
+  p
+    a(href=post.url+'/update') Update Post
